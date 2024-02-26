@@ -47,25 +47,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Bool Va Go</title>
 </head>
 <body>
-    
-    <ul>
-        <?php foreach($hotels as $singleHotel): ?>
-            <li>
-                <?= $singleHotel['name'] ?>
-                ||
-                <?= $singleHotel['description'] ?>
-                ||
-                <?= ($singleHotel['parking']== true) ? 'Con Parcheggio' : 'Senza Parcheggio' ?>
-                ||
-                <?= 'voto:' . ' ' . $singleHotel['vote'] ?>
-                ||
-                <?= 'distanza dal centro:' . ' ' . $singleHotel['distance_to_center'] ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-
+    <main>
+        <table class="table table-success table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="fs-4" scope="col">Nome</th>
+                    <th class="fs-4" scope="col">Descrizione</th>
+                    <th class="fs-4" scope="col">Parcheggio</th>
+                    <th class="fs-4" scope="col">Voto</th>
+                    <th class="fs-4" scope="col">Distanza dal Centro</th>
+                </tr>
+            </thead>
+            <?php foreach($hotels as $singleHotel): ?>
+            <tbody>
+                <tr>
+                    <th scope="col">
+                        <?= $singleHotel['name'] ?>
+                    </th>
+                    <th scope="col">
+                        <?= $singleHotel['description'] ?>
+                    </th>
+                    <th scope="col">
+                        <?= ($singleHotel['parking']== true) ? 'Si' : 'No' ?>
+                    </th>
+                    <th scope="col">
+                        <?=  $singleHotel['vote'] ?>
+                    </th>
+                    <th scope="col">
+                        <?= $singleHotel['distance_to_center'] ?>
+                    </th>
+                    
+                </tr>
+            </tbody>
+            <?php endforeach; ?>
+        </table>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
